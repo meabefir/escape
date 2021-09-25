@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/kitchenBlender.obj-515bad489f120d7dc634424e4b6b591d.mesh"
+
+[deps]
+
+files=[ "res://.import/kitchenBlender.obj-515bad489f120d7dc634424e4b6b591d.mesh" ]
+
+source_file="res://Models/kitchenBlender.obj"
+dest_files=[ "res://.import/kitchenBlender.obj-515bad489f120d7dc634424e4b6b591d.mesh", "res://.import/kitchenBlender.obj-515bad489f120d7dc634424e4b6b591d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

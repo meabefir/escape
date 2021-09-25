@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/hoodModern.obj-c61cd3eb7f0ee2614436a8fbfd25f0ff.mesh"
+
+[deps]
+
+files=[ "res://.import/hoodModern.obj-c61cd3eb7f0ee2614436a8fbfd25f0ff.mesh" ]
+
+source_file="res://Models/hoodModern.obj"
+dest_files=[ "res://.import/hoodModern.obj-c61cd3eb7f0ee2614436a8fbfd25f0ff.mesh", "res://.import/hoodModern.obj-c61cd3eb7f0ee2614436a8fbfd25f0ff.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

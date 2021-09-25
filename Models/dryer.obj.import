@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/dryer.obj-6aff9bc6b0eb086f2fc66cfa1225ac14.mesh"
+
+[deps]
+
+files=[ "res://.import/dryer.obj-6aff9bc6b0eb086f2fc66cfa1225ac14.mesh" ]
+
+source_file="res://Models/dryer.obj"
+dest_files=[ "res://.import/dryer.obj-6aff9bc6b0eb086f2fc66cfa1225ac14.mesh", "res://.import/dryer.obj-6aff9bc6b0eb086f2fc66cfa1225ac14.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

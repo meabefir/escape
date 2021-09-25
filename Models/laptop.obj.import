@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/laptop.obj-ce81e8a10908c22eb7703b834dc627cf.mesh"
+
+[deps]
+
+files=[ "res://.import/laptop.obj-ce81e8a10908c22eb7703b834dc627cf.mesh" ]
+
+source_file="res://Models/laptop.obj"
+dest_files=[ "res://.import/laptop.obj-ce81e8a10908c22eb7703b834dc627cf.mesh", "res://.import/laptop.obj-ce81e8a10908c22eb7703b834dc627cf.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

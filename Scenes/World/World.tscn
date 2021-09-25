@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://bubu.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Interactable/Door/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Lock/DLock/DLock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/PIckable/Chairs/Chair.tscn" type="PackedScene" id=5]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Interactable/LockedDoor/wallDoorway/door/DLock/Viewport")
+
+[node name="World" type="Spatial"]
+
+[node name="Terrain" type="Spatial" parent="."]
+
+[node name="CSGBox" type="CSGBox" parent="Terrain"]
+use_collision = true
+width = 50.0
+height = 0.5
+depth = 50.0
+material = SubResource( 3 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="Terrain"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.3664, -0.205469, 3.8062 )
+use_collision = true
+polygon = PoolVector2Array( 0, 0, -17, 0, -7, 9, -5, 8, -2, 9, 6, 6, 14, 0 )
+depth = 4.0
+smooth_faces = true
+material = SubResource( 1 )
+
+[node name="CSGPolygon2" type="CSGPolygon" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250527, -6.28 )
+use_collision = true
+polygon = PoolVector2Array( 0, 0, -6, 0, -1, 2, 5, 2, 9, 0 )
+depth = 4.0
+smooth_faces = true
+material = SubResource( 1 )
+
+[node name="Lights" type="Spatial" parent="."]
+
+[node name="SpotLight" type="SpotLight" parent="Lights"]
+transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612373, -9.04085, 5.67654, 9.21667 )
+light_color = Color( 0.921569, 0, 1, 1 )
+light_energy = 2.43
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 20.0
+
+[node name="SpotLight2" type="SpotLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, -0.21536, 5.67654, 12.9978 )
+light_color = Color( 0.921569, 0, 1, 1 )
+light_energy = 2.43
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 20.0
+
+[node name="SpotLight3" type="SpotLight" parent="Lights"]
+transform = Transform( 0.866025, 0.25, -0.433013, 0, 0.866026, 0.5, 0.5, -0.433012, 0.75, -26.2767, 10.7678, 32.5758 )
+light_color = Color( 0.921569, 0, 1, 1 )
+light_energy = 2.43
+shadow_enabled = true
+spot_range = 954.4
+spot_angle = 20.0
+spot_angle_attenuation = 0.366021
+
+[node name="Interactable" type="Spatial" parent="."]
+
+[node name="LockedDoor" parent="Interactable" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.539, 0, 1.01762 )
+
+[node name="DLock" parent="Interactable/LockedDoor/wallDoorway/door" index="3" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 4.76838e-08, 0, 1, 0, -4.76838e-08, 0, 1, -0.618774, 1.55106, 0.135445 )
+interactableLocked = NodePath("..")
+code = "1234"
+
+[node name="Sprite3D2" parent="Interactable/LockedDoor/wallDoorway/door/DLock" index="0"]
+texture = SubResource( 2 )
+
+[node name="Pickable" type="Spatial" parent="."]
+
+[node name="Chair" parent="Pickable" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.60539, 1.20867, -2.99116 )
+
+[node name="Chair2" parent="Pickable" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.60539, 1.20867, -2.01641 )
+
+[node name="Chair3" parent="Pickable" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.60539, 1.20867, -1.05638 )
+
+[node name="Chair4" parent="Pickable" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.60539, 1.20867, 0.315899 )
+
+[node name="Chair5" parent="Pickable" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.99463, 1.20867, 0.315899 )
+
+[node name="Chair6" parent="Pickable" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.99463, 1.20867, -0.914629 )
+
+[node name="Chair7" parent="Pickable" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.99463, 1.20867, -2.20878 )
+
+[node name="Chair8" parent="Pickable" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.99463, 1.20867, -3.68095 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.44515, 1.89874, -2.83977 )
+
+[editable path="Interactable/LockedDoor"]
+[editable path="Interactable/LockedDoor/wallDoorway/door/DLock"]

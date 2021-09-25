@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Models/chair.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Scenes/PIckable/Chairs/Chair.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=4]
+friction = 0.5
+rough = true
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.24823, 0.299865, 0.255392 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.246445, 0.282288, 0.0499685 )
+
+[node name="Chair" type="RigidBody"]
+collision_layer = 5
+mass = 10.0
+physics_material_override = SubResource( 4 )
+gravity_scale = 2.0
+continuous_cd = true
+can_sleep = false
+linear_damp = 3.0
+script = ExtResource( 2 )
+
+[node name="chair" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.241256, -0.426289, -0.233204 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0081192, -0.128614, 0.0178347 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0116048, 0.458678, 0.216635 )
+shape = SubResource( 2 )

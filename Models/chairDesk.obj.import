@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/chairDesk.obj-da6f08ad405bb344f943ca0dff48665d.mesh"
+
+[deps]
+
+files=[ "res://.import/chairDesk.obj-da6f08ad405bb344f943ca0dff48665d.mesh" ]
+
+source_file="res://Models/chairDesk.obj"
+dest_files=[ "res://.import/chairDesk.obj-da6f08ad405bb344f943ca0dff48665d.mesh", "res://.import/chairDesk.obj-da6f08ad405bb344f943ca0dff48665d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

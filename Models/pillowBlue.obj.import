@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/pillowBlue.obj-b1201e1a02f2271da1f3116fa0ef1628.mesh"
+
+[deps]
+
+files=[ "res://.import/pillowBlue.obj-b1201e1a02f2271da1f3116fa0ef1628.mesh" ]
+
+source_file="res://Models/pillowBlue.obj"
+dest_files=[ "res://.import/pillowBlue.obj-b1201e1a02f2271da1f3116fa0ef1628.mesh", "res://.import/pillowBlue.obj-b1201e1a02f2271da1f3116fa0ef1628.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

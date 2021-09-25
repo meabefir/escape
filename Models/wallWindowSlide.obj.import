@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/wallWindowSlide.obj-08d1c0eb5e098e271fe11741416cd18f.mesh"
+
+[deps]
+
+files=[ "res://.import/wallWindowSlide.obj-08d1c0eb5e098e271fe11741416cd18f.mesh" ]
+
+source_file="res://Models/wallWindowSlide.obj"
+dest_files=[ "res://.import/wallWindowSlide.obj-08d1c0eb5e098e271fe11741416cd18f.mesh", "res://.import/wallWindowSlide.obj-08d1c0eb5e098e271fe11741416cd18f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

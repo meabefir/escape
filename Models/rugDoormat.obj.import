@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/rugDoormat.obj-ec6adb83ab6b6e7d06c688302b2baff1.mesh"
+
+[deps]
+
+files=[ "res://.import/rugDoormat.obj-ec6adb83ab6b6e7d06c688302b2baff1.mesh" ]
+
+source_file="res://Models/rugDoormat.obj"
+dest_files=[ "res://.import/rugDoormat.obj-ec6adb83ab6b6e7d06c688302b2baff1.mesh", "res://.import/rugDoormat.obj-ec6adb83ab6b6e7d06c688302b2baff1.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

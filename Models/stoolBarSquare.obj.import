@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/stoolBarSquare.obj-8ba42cda15b904894b21e60086378ccc.mesh"
+
+[deps]
+
+files=[ "res://.import/stoolBarSquare.obj-8ba42cda15b904894b21e60086378ccc.mesh" ]
+
+source_file="res://Models/stoolBarSquare.obj"
+dest_files=[ "res://.import/stoolBarSquare.obj-8ba42cda15b904894b21e60086378ccc.mesh", "res://.import/stoolBarSquare.obj-8ba42cda15b904894b21e60086378ccc.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

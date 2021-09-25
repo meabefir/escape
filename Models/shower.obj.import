@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/shower.obj-a323b74b0f3c56cb34a1ba1213593928.mesh"
+
+[deps]
+
+files=[ "res://.import/shower.obj-a323b74b0f3c56cb34a1ba1213593928.mesh" ]
+
+source_file="res://Models/shower.obj"
+dest_files=[ "res://.import/shower.obj-a323b74b0f3c56cb34a1ba1213593928.mesh", "res://.import/shower.obj-a323b74b0f3c56cb34a1ba1213593928.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

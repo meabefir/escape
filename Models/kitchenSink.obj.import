@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/kitchenSink.obj-009268c2912fb2661d6ec80c7a2a1bf0.mesh"
+
+[deps]
+
+files=[ "res://.import/kitchenSink.obj-009268c2912fb2661d6ec80c7a2a1bf0.mesh" ]
+
+source_file="res://Models/kitchenSink.obj"
+dest_files=[ "res://.import/kitchenSink.obj-009268c2912fb2661d6ec80c7a2a1bf0.mesh", "res://.import/kitchenSink.obj-009268c2912fb2661d6ec80c7a2a1bf0.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Fonts/big_white.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/Lock/LockScreen/LockScreen.gd" type="Script" id=2]
@@ -92,6 +92,40 @@ Button/styles/focus = null
 Button/styles/hover = SubResource( 7 )
 Button/styles/normal = SubResource( 8 )
 Button/styles/pressed = SubResource( 9 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "error"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/Control/MarginContainer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25, 0.35, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.764706, 0.313726, 0.647059 ), Color( 0.996078, 0.278431, 0.278431, 0.647059 ), Color( 0.403922, 0.764706, 0.313726, 0.647059 ), Color( 0.996078, 0.278431, 0.278431, 0.647059 ), Color( 0.403922, 0.764706, 0.313726, 0.647059 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "unlocked"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer/Control/MarginContainer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.25, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.403922, 0.764706, 0.313726, 0.647059 ), Color( 0.0588235, 0.239216, 0.866667, 0.647059 ), Color( 0.403922, 0.764706, 0.313726, 0.647059 ), Color( 0.0588235, 0.239216, 0.866667, 0.647059 ), Color( 0.403922, 0.764706, 0.313726, 0.647059 ), Color( 0.0588235, 0.239216, 0.866667, 0.647059 ) ]
+}
 
 [node name="LockScreen" type="Control"]
 anchor_left = 0.5
@@ -341,6 +375,10 @@ size_flags_vertical = 3
 theme = SubResource( 10 )
 custom_fonts/font = ExtResource( 1 )
 text = "enter"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/error = SubResource( 11 )
+anims/unlocked = SubResource( 12 )
 
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/row1/b1" to="." method="_on_b1_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/row1/b2" to="." method="_on_b2_pressed"]

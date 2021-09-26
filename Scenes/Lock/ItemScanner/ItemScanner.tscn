@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Lock/ItemScanner/ItemScanner.gd" type="Script" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.75
+height = 0.5
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.466667, 0.470588, 0.466667, 1 )
+
+[sub_resource type="CylinderMesh" id=3]
+material = SubResource( 2 )
+top_radius = 0.75
+bottom_radius = 0.75
+height = 0.5
+radial_segments = 8
+
+[sub_resource type="CylinderShape" id=4]
+radius = 0.75
+height = 1.0
+
+[sub_resource type="CylinderMesh" id=5]
+top_radius = 0.75
+bottom_radius = 0.75
+height = 1.0
+
+[sub_resource type="SpatialMaterial" id=6]
+resource_local_to_scene = true
+flags_transparent = true
+albedo_color = Color( 0.945098, 0, 0, 0.364706 )
+
+[node name="ItemScanner" type="StaticBody"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="ScanArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="ScanArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ScanArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[connection signal="body_entered" from="ScanArea" to="." method="_on_ScanArea_body_entered"]
+[connection signal="body_exited" from="ScanArea" to="." method="_on_ScanArea_body_exited"]

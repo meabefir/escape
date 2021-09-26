@@ -3,13 +3,20 @@ extends Control
 signal entered
 signal closed
 signal textChanged
+signal error
+signal unlocked
 
 export(NodePath) onready var label = get_node(label)
 
+onready var animationPlayer = get_node("AnimationPlayer")
+
+var canTakeInput = true
 export var maxLength = 4
 var text = "" setget setText
 
 func setText(value):
+	if !canTakeInput:
+		return
 	if value.length() <= maxLength:
 		text = value
 	else:
@@ -17,16 +24,31 @@ func setText(value):
 	
 	label.text = text
 	
+	emit_signal("textChanged", text)
 	if text.length() == maxLength:
 		emit_signal("entered", text)
-	emit_signal("textChanged", text)
+
+func error():
+	emit_signal("error")
+	canTakeInput = false
+	animationPlayer.play("error")
+	yield(animationPlayer, "animation_finished")
+	canTakeInput = true
+	reset()
+
+func unlock():
+	canTakeInput = false
+	animationPlayer.play("unlocked")
+	yield(animationPlayer, "animation_finished")
+	canTakeInput = true
+	emit_signal("unlocked")
 
 func _input(event):
 	if Input.is_action_just_pressed("escape"):
 		if visible:
 			emit_signal("closed")
 			hide()
-	if visible:
+	if visible and canTakeInput:
 		if Input.is_action_just_pressed("1"):
 			self.text += "1"
 		if Input.is_action_just_pressed("2"):
@@ -87,4 +109,6 @@ func _on_delete_pressed():
 	self.text = ""
 
 func _on_confirm_pressed():
+	if !canTakeInput:
+		return
 	emit_signal("entered", text)

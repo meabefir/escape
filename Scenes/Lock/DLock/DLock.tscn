@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Lock/LockScreen/LockScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Lock/DLock/DLock.gd" type="Script" id=2]
 
-[sub_resource type="ViewportTexture" id=4]
+[sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
 
 [sub_resource type="SpatialMaterial" id=2]
@@ -17,13 +17,12 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
 noCollisionWhenLocked = true
-ui = NodePath("CanvasLayer/LockScreen")
-lockScreen3d = NodePath("Viewport/LockScreen")
+code = "1234"
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform( 0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0.0143339, 0.0254444 )
 flip_v = true
-texture = SubResource( 4 )
+texture = SubResource( 1 )
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 1024, 600 )

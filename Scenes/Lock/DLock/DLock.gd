@@ -1,7 +1,9 @@
 extends Lock
 
-export(NodePath) onready var ui = get_node(ui)
-export(NodePath) onready var lockScreen3d = get_node(lockScreen3d)
+onready var ui = get_node("CanvasLayer/LockScreen")
+onready var lockScreen3d = get_node("Viewport/LockScreen")
+#export(NodePath) onready var ui = get_node(ui)
+#export(NodePath) onready var lockScreen3d = get_node(lockScreen3d)
 
 export var code: String
 
@@ -10,11 +12,13 @@ func _ready():
 	ui.connect("entered", self, "codeEntered")
 	ui.connect("closed", self, "lockMenuClosed")
 	ui.connect("textChanged", self, "lockTextChanged")
+	ui.connect("error", self, "lockError")
+	ui.connect("unlocked", self, "lockUnlocked")
 	
 	interactTooltip = "enter code"
 
-	unlockedLayer = 1 + 2
-	lockedLayer = 1
+	unlockedLayer = 0 + 2
+	lockedLayer = 0
 
 func interact():
 	openUi()
@@ -36,16 +40,23 @@ func freePlayer():
 
 func codeEntered(_code):
 	if _code == code:
-		ui.hide()
-		interactableLocked.unlock()
-		freePlayer()
-		
-		ui.maxLength = 9
-		ui.text = "unlocked"
-	
-		lock()
+		ui.unlock()
+		lockScreen3d.unlock()
 	else:
-		ui.reset()
+		ui.error()
+
+func lockUnlocked():
+	ui.hide()
+	freePlayer()
+	
+	ui.maxLength = 9
+	ui.text = "unlocked"
+
+	lock(null)
+	.lockUnlocked()
 
 func lockTextChanged(_text):
 	lockScreen3d.text = _text
+
+func lockError():
+	lockScreen3d.error()

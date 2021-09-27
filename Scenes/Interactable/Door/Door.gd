@@ -9,7 +9,10 @@ func _ready():
 	interactTooltip = "open" if closed else "close"
 
 func getAngleToPlayer():
-	var player = get_tree().get_nodes_in_group("player")[0]
+	var player = get_tree().get_nodes_in_group("player")
+	if player.size() == 0:
+		return 90
+	player = player[0]
 	var dir_to_player = wall.global_transform.origin.direction_to(player.global_transform.origin)
 	return rad2deg(Vector3.FORWARD.rotated(Vector3.UP, deg2rad(wall.rotation_degrees.y)).angle_to(dir_to_player))
 

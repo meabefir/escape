@@ -1,0 +1,154 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/Interactable/Door/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Lock/DLock/DLock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Lock/ItemScanner/ItemScanner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Lock/Lever/Lever.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/PIckable/Chairs/Chair.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PIckable/Paintings/Small/PaintingSmall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://bubu.png" type="Texture" id=8]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 8 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 50, 1, 50 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 25, 0.5, 25 )
+
+[node name="World" type="Spatial"]
+
+[node name="Terrain" type="Spatial" parent="."]
+
+[node name="CSGPolygon" type="CSGPolygon" parent="Terrain"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.3664, -0.205469, 3.8062 )
+use_collision = true
+polygon = PoolVector2Array( 0, 0, -17, 0, -7, 9, -5, 8, -3, 9, -2, 9, 6, 6, 14, 0 )
+depth = 4.0
+smooth_faces = true
+material = SubResource( 1 )
+
+[node name="CSGPolygon2" type="CSGPolygon" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.250527, -6.28 )
+use_collision = true
+polygon = PoolVector2Array( 0, 0, -6, 0, -1, 2, 5, 2, 9, 0 )
+depth = 4.0
+smooth_faces = true
+material = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Terrain"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Terrain/MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Terrain/MeshInstance/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Lights" type="Spatial" parent="."]
+
+[node name="SpotLight" type="SpotLight" parent="Lights"]
+transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612373, -9.04085, 5.67654, 9.21667 )
+light_color = Color( 0.921569, 0, 1, 1 )
+light_energy = 2.43
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 20.0
+
+[node name="SpotLight2" type="SpotLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, -0.21536, 5.67654, 12.9978 )
+light_color = Color( 0.921569, 0, 1, 1 )
+light_energy = 2.43
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 20.0
+
+[node name="SpotLight3" type="SpotLight" parent="Lights"]
+transform = Transform( 0.866025, 0.25, -0.433013, 0, 0.866026, 0.5, 0.5, -0.433012, 0.75, -26.2767, 10.7678, 32.5758 )
+light_color = Color( 0.921569, 0, 1, 1 )
+light_energy = 2.43
+shadow_enabled = true
+spot_range = 954.4
+spot_angle = 20.0
+spot_angle_attenuation = 0.366021
+
+[node name="Interactable" type="Spatial" parent="."]
+
+[node name="LockedDoor" parent="Interactable" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.539, 0.5, 1.018 )
+
+[node name="DLock" parent="Interactable/LockedDoor/wallDoorway/door" index="3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603004, 1.45431, 0.0103149 )
+interactOnUnlock = false
+interactableLocked = NodePath("..")
+
+[node name="DLock2" parent="Interactable/LockedDoor/wallDoorway/door" index="4" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603004, 1.79932, 0.0103149 )
+interactableLocked = NodePath("..")
+
+[node name="ItemScannerLockedDoor" parent="Interactable" instance=ExtResource( 1 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.1236, 0.436735, 1.91646 )
+
+[node name="ItemScanner" parent="Interactable/ItemScannerLockedDoor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.355839, 0.0576395, 3.49445 )
+interactableLocked = NodePath("../wallDoorway/door")
+neededItem = NodePath("../../../Pickable/Chair2")
+
+[node name="ItemScanner2" parent="Interactable/ItemScannerLockedDoor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3072, 0.0576395, 5.91579 )
+interactableLocked = NodePath("../wallDoorway/door")
+neededItem = NodePath("../../../Pickable/Chair")
+
+[node name="LeverDoor" parent="Interactable" instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.121, 0.5, 4.597 )
+
+[node name="door" parent="Interactable/LeverDoor/wallDoorway" index="1"]
+wall = NodePath("../../../LeverDoor")
+
+[node name="Lever" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.01698, 1.97137, 0.14338 )
+chainsWith = [ NodePath("../Lever2") ]
+interactableLocked = NodePath("../wallDoorway/door")
+stateNeeded = 1
+
+[node name="Lever2" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.01698, 1.38166, 0.14338 )
+chainsWith = [ NodePath("../Lever3") ]
+interactableLocked = NodePath("../wallDoorway/door")
+startState = 0
+
+[node name="Lever3" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.955136, 1.97137, 0.14338 )
+chainsWith = [ NodePath("../Lever4") ]
+interactableLocked = NodePath("../wallDoorway/door")
+startState = 0
+stateNeeded = 1
+
+[node name="Lever4" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.955136, 1.38166, 0.14338 )
+interactableLocked = NodePath("../wallDoorway/door")
+
+[node name="Pickable" type="Spatial" parent="."]
+
+[node name="Chair" parent="Pickable" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6233, 1.66325, -4.0626 )
+
+[node name="Chair2" parent="Pickable" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.60539, 1.20867, -2.01641 )
+
+[node name="PaintingSmall" parent="Pickable" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 9.77345, 1.37721, -3.69475 )
+
+[node name="PaintingSmall2" parent="Pickable" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 8.81736, 1.37721, 0.0318987 )
+
+[node name="Decor" type="Spatial" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44034, 1.4657, -3.30821 )
+
+[editable path="Interactable/LockedDoor"]
+[editable path="Interactable/ItemScannerLockedDoor"]
+[editable path="Interactable/LeverDoor"]

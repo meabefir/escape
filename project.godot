@@ -39,8 +39,17 @@ _global_script_class_icons={
 [application]
 
 config/name="escape"
-run/main_scene="res://Scenes/World/World.tscn"
+run/main_scene="res://Scenes/Level/TestLevel.tscn"
 config/icon="res://icon.png"
+
+[importer_defaults]
+
+wavefront_obj={
+"generate_tangents": true,
+"offset_mesh": Vector3( 0, 0, 0 ),
+"optimize_mesh": true,
+"scale_mesh": Vector3( 2.5, 2.5, 2.5 )
+}
 
 [input]
 
@@ -148,7 +157,7 @@ interact={
 
 [physics]
 
-3d/physics_engine="Bullet"
+3d/active_soft_world=false
 
 [rendering]
 

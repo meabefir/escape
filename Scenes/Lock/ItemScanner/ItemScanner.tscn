@@ -56,5 +56,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 mesh = SubResource( 5 )
 material/0 = SubResource( 6 )
 
+[node name="Tween" type="Tween" parent="."]
 [connection signal="body_entered" from="ScanArea" to="." method="_on_ScanArea_body_entered"]
 [connection signal="body_exited" from="ScanArea" to="." method="_on_ScanArea_body_exited"]

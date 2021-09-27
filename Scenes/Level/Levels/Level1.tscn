@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Level/MeshLibrary.tres" type="MeshLibrary" id=2]
+[ext_resource path="res://Scenes/PIckable/Chairs/Chair.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ProceduralSky" id=1]
+ground_bottom_color = Color( 0.647059, 0.839216, 0.945098, 1 )
+ground_horizon_color = Color( 0.839216, 0.917647, 0.980392, 1 )
+ground_curve = 0.09
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[node name="Level1" type="Spatial"]
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="GridMap" type="GridMap" parent="Spatial"]
+mesh_library = ExtResource( 2 )
+cell_size = Vector3( 2.5, 2.5, 2.5 )
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PoolIntArray( 0, 0, 1441798, 1, 0, 1441798, 65535, 0, 1441798, 0, 1, 1441798, 1, 1, 1441798, 65535, 1, 1441798, 0, 65535, 1441798, 1, 65535, 1441798, 65535, 65535, 1441798 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="GridMap2" type="GridMap" parent="Spatial"]
+mesh_library = ExtResource( 2 )
+cell_size = Vector3( 2.5, 2.5, 2.5 )
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PoolIntArray( 1, 0, 1441794, 65534, 0, 1048576, 0, 1, 655360, 1, 1, 1441796, 65534, 1, 655360, 65535, 1, 655360, 0, 65534, 0, 1, 65534, 0, 65534, 65534, 1048576, 65535, 65534, 0, 1, 65535, 1441796, 65534, 65535, 1048576 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="Terrain" type="Spatial" parent="."]
+
+[node name="Lights" type="Spatial" parent="."]
+
+[node name="SpotLight" type="SpotLight" parent="Lights"]
+transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.499999, 0.707107, -0.353553, 0.612373, -4.66113, 3.44091, 1.89354 )
+light_color = Color( 0.921569, 0, 1, 1 )
+light_energy = 2.43
+light_indirect_energy = 10.0
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 37.0
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="SpotLight2" type="SpotLight" parent="Lights"]
+transform = Transform( -0.707107, 0.353553, -0.612373, 0, 0.866026, 0.499999, 0.707107, 0.353553, -0.612373, -4.66113, 3.44091, -4.49368 )
+light_color = Color( 0.921569, 0, 1, 1 )
+light_energy = 2.43
+light_indirect_energy = 10.0
+shadow_enabled = true
+spot_range = 50.0
+spot_angle = 37.0
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Interactable" type="Spatial" parent="."]
+
+[node name="Pickable" type="Spatial" parent="."]
+
+[node name="Chair" parent="Pickable" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.318781, 1.55374, -2.78361 )
+
+[node name="Decor" type="Spatial" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7017, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[editable path="Player"]

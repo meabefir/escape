@@ -4,12 +4,18 @@ class_name Player
 
 onready var head = get_node("Head")
 
-export(NodePath) onready var interactRay = get_node(interactRay)
-export(NodePath) onready var interactLabel = get_node(interactLabel)
-export(NodePath) onready var camera = get_node(camera)
+onready var interactRay = get_node("Head/InteractRay")
+onready var interactLabel = get_node("CanvasLayer/InteractLabel")
 
-export(NodePath) onready var grabPoint = get_node(grabPoint)
-export(NodePath) onready var pinJoint = get_node(pinJoint)
+onready var grabPoint = get_node("Head/GrabPoint")
+onready var pinJoint = get_node("Head/GrabPoint/PinJoint")
+
+#export(NodePath) onready var interactRay = get_node(interactRay)
+#export(NodePath) onready var interactLabel = get_node(interactLabel)
+#export(NodePath) onready var camera = get_node(camera)
+
+#export(NodePath) onready var grabPoint = get_node(grabPoint)
+#export(NodePath) onready var pinJoint = get_node(pinJoint)
 
 enum STATE {
 	DEFAULT,
@@ -63,10 +69,9 @@ func _physics_process(delta):
 	match state:
 		STATE.DEFAULT:
 			stateDefault(delta)
-
-	#velLabel.text = str(groundRay.get_collision_normal())
-	#velLabel.text = str(velocity)
-	#normalLabel.text = str(groundRay.get_collision_normal())
+			
+	velLabel.text = str(velocity)
+	normalLabel.text = str(get_floor_normal())
 	
 func getMouseInput(event):
 	if event is InputEventMouseMotion:
@@ -143,17 +148,13 @@ func move(delta):
 #		if !collider is Pickable:
 #			continue
 #		var vec_to_collider = (collider.global_transform.origin - global_transform.origin).normalized()
-#		collider.apply_central_impulse(vec_to_collider * 52)
+#		collider.apply_central_impulse(vec_to_collider * 5)
 	
 func updateInteractRay():
 	var interactable = interactRay.get_collider()
 	if pickableGrabbed:
 		if !Input.is_action_pressed("interact"):
 			resetGrabbed()
-		return
-		
-	if interactable == null:
-		interactLabel.text = ""
 		return
 		
 	if interactable is Interactable:
@@ -172,9 +173,12 @@ func updateInteractRay():
 			# set grabPosition new offset so the original position of the pickable is the grab point
 			grabPoint.translation.x = max((pickableGrabbed.global_transform.origin - head.global_transform.origin).length(), 1.5)
 			pinJoint.set_node_b(pinJoint.get_path_to(pickableGrabbed))
-			var mass_ratio = .4
+			var mass_ratio = 1
 			pinJoint.set_param(PinJoint.PARAM_IMPULSE_CLAMP, pickableGrabbed.mass * mass_ratio)
 			interactLabel.text = ""
+	else:
+		interactLabel.text = ""
+		return
 	
 func resetGrabbed():
 	pickableGrabbed = null

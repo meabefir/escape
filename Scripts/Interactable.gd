@@ -3,18 +3,24 @@ extends StaticBody
 class_name Interactable
 
 var interactTooltip = ""
-var locked = false
+export var locked = false
 
 export var noCollisionWhenLocked = false
 export var interactOnUnlock = true
+export(Array, NodePath) var chainsWith
 
-var unlockedLayer
-var lockedLayer
+var unlockedLayer = 0 + 2
+var lockedLayer = 0
 
 var lockedBy = []
 
+func _ready():
+	for i in range(chainsWith.size()):
+		chainsWith[i] = get_node(chainsWith[i])
+
 func interact():
-	pass
+	for interactable in chainsWith:
+		interactable.interact()
 	
 func lock(by):
 	if by in lockedBy:

@@ -414,6 +414,26 @@ transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 10, 0, 2.5 )
 [node name="floorFull5" parent="Terrain/Floor" instance=ExtResource( 4 )]
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 2.5, 0, 2.5 )
 
+[node name="Ceiling" type="Spatial" parent="Terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
+visible = false
+
+[node name="floorFull2" parent="Terrain/Ceiling" instance=ExtResource( 4 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 2.5, 0, -5 )
+cast_shadow = 0
+
+[node name="floorFull3" parent="Terrain/Ceiling" instance=ExtResource( 4 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 10, 0, -5 )
+cast_shadow = 0
+
+[node name="floorFull4" parent="Terrain/Ceiling" instance=ExtResource( 4 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 10, 0, 2.5 )
+cast_shadow = 0
+
+[node name="floorFull5" parent="Terrain/Ceiling" instance=ExtResource( 4 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 2.5, 0, 2.5 )
+cast_shadow = 0
+
 [node name="Walls" type="Spatial" parent="Terrain"]
 
 [node name="wall" parent="Terrain/Walls" instance=ExtResource( 2 )]
@@ -485,7 +505,7 @@ transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 7.5, 0,
 [node name="Lights" type="Spatial" parent="."]
 
 [node name="SpotLight1Room1" type="SpotLight" parent="Lights"]
-transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.499999, 0.707107, -0.353553, 0.612373, -4.66113, 3.44091, 1.89354 )
+transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.499999, 0.707107, -0.353553, 0.612373, -4.66113, 2.819, 1.89354 )
 light_color = Color( 0.85098, 0.12549, 0.12549, 1 )
 light_energy = 4.0
 light_indirect_energy = 10.0
@@ -497,7 +517,7 @@ __meta__ = {
 }
 
 [node name="SpotLight2Room1" type="SpotLight" parent="Lights"]
-transform = Transform( -0.707107, 0.353553, -0.612373, 0, 0.866026, 0.499999, 0.707107, 0.353553, -0.612373, -4.66113, 3.44091, -4.49368 )
+transform = Transform( -0.707107, 0.353553, -0.612373, 0, 0.866026, 0.499999, 0.707107, 0.353553, -0.612373, -4.66113, 2.81288, -4.49368 )
 light_color = Color( 0.85098, 0.12549, 0.12549, 1 )
 light_energy = 4.0
 light_indirect_energy = 10.0
@@ -509,7 +529,7 @@ __meta__ = {
 }
 
 [node name="SpotLight1Room2" type="SpotLight" parent="Lights"]
-transform = Transform( -0.707107, 0.353553, -0.612373, 0, 0.866026, 0.499999, 0.707107, 0.353553, -0.612373, 2.93973, 3.44091, -4.49368 )
+transform = Transform( -0.707107, 0.353553, -0.612373, 0, 0.866026, 0.499999, 0.707107, 0.353553, -0.612373, 2.93973, 3.00527, -4.49368 )
 light_color = Color( 0.854902, 0, 0.619608, 1 )
 light_energy = 4.0
 light_indirect_energy = 10.0
@@ -521,7 +541,7 @@ __meta__ = {
 }
 
 [node name="SpotLight1Room3" type="SpotLight" parent="Lights"]
-transform = Transform( -0.707107, -0.353553, 0.612373, 0, 0.866026, 0.499999, -0.707107, 0.353553, -0.612373, 9.66336, 3.44091, 2.77969 )
+transform = Transform( -0.707107, -0.353553, 0.612373, 0, 0.866026, 0.499999, -0.707107, 0.353553, -0.612373, 9.66336, 3.0003, 2.77969 )
 light_color = Color( 0.854902, 0, 0.619608, 1 )
 light_energy = 4.0
 light_indirect_energy = 10.0

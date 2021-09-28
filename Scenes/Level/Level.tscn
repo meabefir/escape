@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scenes/Level/MeshLibrary.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
 
 [sub_resource type="ProceduralSky" id=1]
@@ -13,22 +12,6 @@ background_mode = 2
 background_sky = SubResource( 1 )
 
 [node name="Level" type="Spatial"]
-
-[node name="GridMaps" type="Spatial" parent="."]
-
-[node name="GridMap" type="GridMap" parent="GridMaps"]
-mesh_library = ExtResource( 1 )
-cell_size = Vector3( 1, 1, 1 )
-cell_center_x = false
-cell_center_y = false
-cell_center_z = false
-data = {
-"cells": PoolIntArray(  )
-}
-__meta__ = {
-"_editor_clip_": 0,
-"_editor_floor_": Vector3( 0, 0, 0 )
-}
 
 [node name="Terrain" type="Spatial" parent="."]
 
@@ -46,4 +29,3 @@ normalLabel = NodePath("../../Level/Player/CanvasLayer/random info/normal label"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
-

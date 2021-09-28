@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Lock/TimerButton/TimerButton.gd" type="Script" id=2]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.03
+radial_segments = 12
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.180392, 0.333333, 0.427451, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( 0, 0.015, 0.1, 0.05, 0.015, 0.0866025, 0.0866025, 0.015, 0.05, 0.1, 0.015, 6.12303e-18, 0.0866025, 0.015, -0.05, 0.05, 0.015, -0.0866025, 1.22461e-17, 0.015, -0.1, -0.05, 0.015, -0.0866025, -0.0866025, 0.015, -0.05, -0.1, 0.015, -1.83691e-17, -0.0866025, 0.015, 0.05, -0.05, 0.015, 0.0866025, -2.44921e-17, 0.015, 0.1, 0, 0.009, 0.1, 0.05, 0.009, 0.0866025, 0.0866025, 0.009, 0.05, 0.1, 0.009, 6.12303e-18, 0.0866025, 0.009, -0.05, 0.05, 0.009, -0.0866025, 1.22461e-17, 0.009, -0.1, -0.05, 0.009, -0.0866025, -0.0866025, 0.009, -0.05, -0.1, 0.009, -1.83691e-17, -0.0866025, 0.009, 0.05, -0.05, 0.009, 0.0866025, -2.44921e-17, 0.009, 0.1, 0, 0.003, 0.1, 0.05, 0.003, 0.0866025, 0.0866025, 0.003, 0.05, 0.1, 0.003, 6.12303e-18, 0.0866025, 0.003, -0.05, 0.05, 0.003, -0.0866025, 1.22461e-17, 0.003, -0.1, -0.05, 0.003, -0.0866025, -0.0866025, 0.003, -0.05, -0.1, 0.003, -1.83691e-17, -0.0866025, 0.003, 0.05, -0.05, 0.003, 0.0866025, -2.44921e-17, 0.003, 0.1, 0, -0.003, 0.1, 0.05, -0.003, 0.0866025, 0.0866025, -0.003, 0.05, 0.1, -0.003, 6.12303e-18, 0.0866025, -0.003, -0.05, 0.05, -0.003, -0.0866025, 1.22461e-17, -0.003, -0.1, -0.05, -0.003, -0.0866025, -0.0866025, -0.003, -0.05, -0.1, -0.003, -1.83691e-17, -0.0866025, -0.003, 0.05, -0.05, -0.003, 0.0866025, -2.44921e-17, -0.003, 0.1, 0, -0.009, 0.1, 0.05, -0.009, 0.0866025, 0.0866025, -0.009, 0.05, 0.1, -0.009, 6.12303e-18, 0.0866025, -0.009, -0.05, 0.05, -0.009, -0.0866025, 1.22461e-17, -0.009, -0.1, -0.05, -0.009, -0.0866025, -0.0866025, -0.009, -0.05, -0.1, -0.009, -1.83691e-17, -0.0866025, -0.009, 0.05, -0.05, -0.009, 0.0866025, -2.44921e-17, -0.009, 0.1, 0, -0.015, 0.1, 0.05, -0.015, 0.0866025, 0.0866025, -0.015, 0.05, 0.1, -0.015, 6.12303e-18, 0.0866025, -0.015, -0.05, 0.05, -0.015, -0.0866025, 1.22461e-17, -0.015, -0.1, -0.05, -0.015, -0.0866025, -0.0866025, -0.015, -0.05, -0.1, -0.015, -1.83691e-17, -0.0866025, -0.015, 0.05, -0.05, -0.015, 0.0866025, -2.44921e-17, -0.015, 0.1, 0, 0.015, 0, 0, 0.015, 0.1, 0.05, 0.015, 0.0866025, 0.0866025, 0.015, 0.05, 0.1, 0.015, 6.12303e-18, 0.0866025, 0.015, -0.05, 0.05, 0.015, -0.0866025, 1.22461e-17, 0.015, -0.1, -0.05, 0.015, -0.0866025, -0.0866025, 0.015, -0.05, -0.1, 0.015, -1.83691e-17, -0.0866025, 0.015, 0.05, -0.05, 0.015, 0.0866025, -2.44921e-17, 0.015, 0.1, 0, -0.015, 0, 0, -0.015, 0.1, 0.05, -0.015, 0.0866025, 0.0866025, -0.015, 0.05, 0.1, -0.015, 6.12303e-18, 0.0866025, -0.015, -0.05, 0.05, -0.015, -0.0866025, 1.22461e-17, -0.015, -0.1, -0.05, -0.015, -0.0866025, -0.0866025, -0.015, -0.05, -0.1, -0.015, -1.83691e-17, -0.0866025, -0.015, 0.05, -0.05, -0.015, 0.0866025, -2.44921e-17, -0.015, 0.1 )
+
+[sub_resource type="CylinderMesh" id=4]
+top_radius = 0.06
+bottom_radius = 0.08
+height = 0.03
+radial_segments = 12
+
+[sub_resource type="SpatialMaterial" id=5]
+resource_local_to_scene = true
+albedo_color = Color( 0.905882, 0.239216, 0.239216, 1 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "push"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("button mesh:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1.5, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.03, 0 ), Vector3( 0, 0.01, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "release"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("button mesh:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.01, 0 ), Vector3( 0, 0.03, 0 ) ]
+}
+
+[node name="TimerButton" type="StaticBody"]
+collision_layer = 3
+script = ExtResource( 2 )
+
+[node name="base mesh" type="MeshInstance" parent="."]
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 3 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0300323, 0 )
+shape = SubResource( 3 )
+
+[node name="button mesh" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0 )
+cast_shadow = 0
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/push = SubResource( 6 )
+anims/release = SubResource( 7 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

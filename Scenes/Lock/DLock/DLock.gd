@@ -17,6 +17,7 @@ func _ready():
 	
 	interactTooltip = "enter code"
 
+func _init():
 	unlockedLayer = 0 + 2
 	lockedLayer = 0
 

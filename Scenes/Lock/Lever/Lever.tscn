@@ -56,10 +56,10 @@ tracks/0/keys = {
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 1 )
-noCollisionWhenLocked = true
 startState = 1
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+cast_shadow = 0
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
@@ -71,6 +71,7 @@ transform = Transform( 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="lever" type="MeshInstance" parent="lever pivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0821581, 0, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 

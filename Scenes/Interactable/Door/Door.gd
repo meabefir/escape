@@ -1,12 +1,16 @@
 extends Interactable
 
 onready var animationPlayer = get_node("AnimationPlayer")
-export(NodePath) onready var wall = get_node(wall)
+onready var wall = get_parent().get_parent()
 
 var closed = true
 
 func _ready():
 	interactTooltip = "open" if closed else "close"
+
+func _init():
+	unlockedLayer = 1 + 2
+	lockedLayer = 1 + 2
 
 func getAngleToPlayer():
 	var player = get_tree().get_nodes_in_group("player")

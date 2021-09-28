@@ -1,0 +1,19 @@
+[gd_scene format=2]
+
+[node name="RoomTemplate" type="Spatial"]
+
+[node name="Terrain" type="Spatial" parent="."]
+
+[node name="Floor" type="Spatial" parent="Terrain"]
+
+[node name="Ceiling" type="Spatial" parent="Terrain"]
+
+[node name="Wall" type="Spatial" parent="Terrain"]
+
+[node name="Lights" type="Spatial" parent="."]
+
+[node name="Interactable" type="Spatial" parent="."]
+
+[node name="Pickable" type="Spatial" parent="."]
+
+[node name="Decor" type="Spatial" parent="."]

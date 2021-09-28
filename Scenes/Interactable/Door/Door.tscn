@@ -61,7 +61,6 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, -4.76838e-08, 0, 1, 0, 4.76838e-08, 0, 1, -0.6425, 0, 0.0681086 )
 collision_layer = 3
 script = ExtResource( 3 )
-wall = NodePath("../..")
 
 [node name="CollisionShape" type="CollisionShape" parent="wallDoorway/door"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.116632 )

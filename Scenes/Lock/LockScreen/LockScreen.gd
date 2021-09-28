@@ -10,6 +10,7 @@ export(NodePath) onready var label = get_node(label)
 
 onready var animationPlayer = get_node("AnimationPlayer")
 
+var locked = true
 var canTakeInput = true
 export var maxLength = 4
 var text = "" setget setText
@@ -22,12 +23,17 @@ func setText(value):
 	else:
 		return
 	
-	label.text = text
+	var visible_text = text
+	if locked:
+		while visible_text.length() < maxLength:
+			visible_text += "-"
+	
+	label.text = visible_text
 	
 	emit_signal("textChanged", text)
 	if text.length() == maxLength:
 		emit_signal("entered", text)
-
+	
 func error():
 	emit_signal("error")
 	canTakeInput = false
@@ -37,6 +43,7 @@ func error():
 	reset()
 
 func unlock():
+	locked = false
 	canTakeInput = false
 	animationPlayer.play("unlocked")
 	yield(animationPlayer, "animation_finished")
@@ -67,7 +74,12 @@ func _input(event):
 			self.text += "8"
 		if Input.is_action_just_pressed("9"):
 			self.text += "9"
-		
+		if Input.is_action_just_pressed("backspace"):
+			_on_backspace_pressed()
+		if Input.is_action_just_pressed("delete"):
+			_on_delete_pressed()
+		if Input.is_action_just_pressed("enter"):
+			_on_confirm_pressed()
 			
 func _ready():
 	self.text = ""

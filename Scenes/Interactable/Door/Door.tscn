@@ -44,7 +44,6 @@ tracks/0/keys = {
 [node name="Door" type="Spatial"]
 
 [node name="wallDoorway" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22762, 0, 0 )
 mesh = ExtResource( 2 )
 material/0 = null
 material/1 = null

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Pickable.gd" type="Script" id=1]
-[ext_resource path="res://rawr.png" type="Texture" id=2]
+[ext_resource path="res://musk.png" type="Texture" id=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.5, 0.06, 0.5 )
@@ -33,5 +33,5 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( -2.62268e-08, -0.6, -2.62268e-08, 0, -4.37114e-08, 1, -0.7, 3.0598e-08, 1.33748e-15, 0, 0.0681115, 0 )
+transform = Transform( -1.40338e-08, -0.321055, -1.40338e-08, 0, -4.37114e-08, 1, -0.353714, 1.54613e-08, 6.75836e-16, 0, 0.0681115, 0 )
 texture = ExtResource( 2 )

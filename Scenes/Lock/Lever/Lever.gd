@@ -32,8 +32,8 @@ func setState(_state):
 	if state == stateNeeded:
 		lockUnlocked()
 	
-func interact():
-	.interact()
+func interact(propagate = true):
+	.interact(propagate)
 	if animationPlayer.is_playing():
 		return
 	if state == STATE.DOWN:

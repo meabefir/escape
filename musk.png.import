@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/rawr.png-3e4b588ad6467ee0613963f8e8c93814.s3tc.stex"
-path.etc2="res://.import/rawr.png-3e4b588ad6467ee0613963f8e8c93814.etc2.stex"
+path.s3tc="res://.import/musk.png-63c3c8132e9212b5ea5584281eaf8e4d.s3tc.stex"
+path.etc2="res://.import/musk.png-63c3c8132e9212b5ea5584281eaf8e4d.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://rawr.png"
-dest_files=[ "res://.import/rawr.png-3e4b588ad6467ee0613963f8e8c93814.s3tc.stex", "res://.import/rawr.png-3e4b588ad6467ee0613963f8e8c93814.etc2.stex" ]
+source_file="res://musk.png"
+dest_files=[ "res://.import/musk.png-63c3c8132e9212b5ea5584281eaf8e4d.s3tc.stex", "res://.import/musk.png-63c3c8132e9212b5ea5584281eaf8e4d.etc2.stex" ]
 
 [params]
 

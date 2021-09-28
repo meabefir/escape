@@ -2,13 +2,17 @@ extends KinematicBody
 
 class_name Player
 
-onready var head = get_node("Head")
+onready var torso = get_node("Torso")
+onready var head = get_node("Torso/Head")
+onready var camera = get_node("Torso/Head/Camera")
 
-onready var interactRay = get_node("Head/InteractRay")
+onready var interactRay = get_node("Torso/Head/InteractRay")
 onready var interactLabel = get_node("CanvasLayer/InteractLabel")
 
-onready var grabPoint = get_node("Head/GrabPoint")
-onready var pinJoint = get_node("Head/GrabPoint/PinJoint")
+onready var grabPoint = get_node("Torso/Head/GrabPoint")
+onready var pinJoint = get_node("Torso/Head/GrabPoint/PinJoint")
+
+onready var settings = get_node("CanvasLayer/Settings")
 
 #export(NodePath) onready var interactRay = get_node(interactRay)
 #export(NodePath) onready var interactLabel = get_node(interactLabel)
@@ -19,7 +23,8 @@ onready var pinJoint = get_node("Head/GrabPoint/PinJoint")
 
 enum STATE {
 	DEFAULT,
-	INTERACT_MENU
+	INTERACT_MENU,
+	PAUSED
 }
 
 var state = STATE.DEFAULT setget setState
@@ -47,6 +52,10 @@ export(NodePath) onready var velLabel = get_node(velLabel)
 export(NodePath) onready var normalLabel = get_node(normalLabel)
 
 func setState(value):
+	match state:
+		STATE.PAUSED:
+			settings.hide()
+	
 	state = value
 		
 	match state:
@@ -56,30 +65,42 @@ func setState(value):
 		STATE.INTERACT_MENU:
 			interactLabel.text = ""
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			resetInput()
+		STATE.PAUSED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			settings.show()
+			resetInput()
 		
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	settings.hide()
 
 func _input(event):
 	match state:
 		STATE.DEFAULT:
-			getMouseInput(event)
+			stateDefaultInput(event)
+		STATE.PAUSED:
+			statePausedInput(event)
 			
 func _physics_process(delta):
 	match state:
 		STATE.DEFAULT:
 			stateDefault(delta)
+		STATE.INTERACT_MENU:
+			move(delta)
+		STATE.PAUSED:
+			move(delta)
 			
-	velLabel.text = str(velocity)
+	velLabel.text = str(state)
 	normalLabel.text = str(get_floor_normal())
 	
-func getMouseInput(event):
+func stateDefaultInput(event):
 	if event is InputEventMouseMotion:
 		# rotate
 		# if mouse mode not captured, return
 		if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 			return
-		rotate_y(- deg2rad(event.relative.x) * mouseSpeed)
+		torso.rotate_y(- deg2rad(event.relative.x) * mouseSpeed)
 		head.rotate_z(- deg2rad(event.relative.y) * mouseSpeed)
 		
 		#clamp it
@@ -87,10 +108,12 @@ func getMouseInput(event):
 	
 	if event is InputEventKey:
 		if Input.is_action_just_pressed("escape"):
-			if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			else:
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			self.state = STATE.PAUSED
+	
+func statePausedInput(event):
+	if event is InputEventKey:
+		if Input.is_action_just_pressed("escape"):
+			self.state = STATE.DEFAULT
 	
 func getInput():
 	inputVector = Vector3()
@@ -109,7 +132,7 @@ func resetInput():
 	
 func move(delta):
 	# this is retarded, only works when the player is direct child of the world
-	inputVector = inputVector.rotated(Vector3.UP, rotation.y - deg2rad(90))
+	inputVector = inputVector.rotated(Vector3.UP, torso.rotation.y - deg2rad(90))
 	var wanted_velocity_xy = Vector2()
 	
 	# acceleration
@@ -122,6 +145,7 @@ func move(delta):
 		velocity_xy = velocity_xy.move_toward(wanted_velocity_xy, dec)
 	velocity.x = velocity_xy.x
 	velocity.z = velocity_xy.y
+	
 	
 	var jump_this_frame = false
 	onFloor = is_on_floor()

@@ -7,10 +7,9 @@
 [ext_resource path="res://Scenes/PIckable/Chairs/Chair.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/PIckable/Paintings/Small/PaintingSmall.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://bubu.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Level/Level.gd" type="Script" id=8]
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_texture = ExtResource( 8 )
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 50, 1, 50 )
@@ -18,7 +17,8 @@ size = Vector3( 50, 1, 50 )
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 25, 0.5, 25 )
 
-[node name="World" type="Spatial"]
+[node name="Level" type="Spatial"]
+script = ExtResource( 8 )
 
 [node name="Terrain" type="Spatial" parent="."]
 
@@ -89,7 +89,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603004, 1.79932, 0.0103149 
 interactableLocked = NodePath("..")
 
 [node name="ItemScannerLockedDoor" parent="Interactable" instance=ExtResource( 1 )]
-transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.1236, 0.436735, 1.91646 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 10.1236, 0.436735, 1.91646 )
 
 [node name="ItemScanner" parent="Interactable/ItemScannerLockedDoor" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.355839, 0.0576395, 3.49445 )
@@ -105,29 +105,29 @@ neededItem = NodePath("../../../Pickable/Chair")
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.121, 0.5, 4.597 )
 
 [node name="door" parent="Interactable/LeverDoor/wallDoorway" index="1"]
-wall = NodePath("../../../LeverDoor")
+wall = NodePath("../../../../../World/Interactable/LeverDoor")
 
 [node name="Lever" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.01698, 1.97137, 0.14338 )
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.23911, 1.97137, 0.14338 )
 chainsWith = [ NodePath("../Lever2") ]
 interactableLocked = NodePath("../wallDoorway/door")
 stateNeeded = 1
 
 [node name="Lever2" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -1.01698, 1.38166, 0.14338 )
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.23911, 1.38166, 0.14338 )
 chainsWith = [ NodePath("../Lever3") ]
 interactableLocked = NodePath("../wallDoorway/door")
 startState = 0
 
 [node name="Lever3" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.955136, 1.97137, 0.14338 )
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.266999, 1.97137, 0.14338 )
 chainsWith = [ NodePath("../Lever4") ]
 interactableLocked = NodePath("../wallDoorway/door")
 startState = 0
 stateNeeded = 1
 
 [node name="Lever4" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.955136, 1.38166, 0.14338 )
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.266999, 1.38166, 0.14338 )
 interactableLocked = NodePath("../wallDoorway/door")
 
 [node name="Pickable" type="Spatial" parent="."]

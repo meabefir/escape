@@ -16,7 +16,8 @@ func getAngleToPlayer():
 	var dir_to_player = wall.global_transform.origin.direction_to(player.global_transform.origin)
 	return rad2deg(Vector3.FORWARD.rotated(Vector3.UP, deg2rad(wall.rotation_degrees.y)).angle_to(dir_to_player))
 
-func interact():
+func interact(propagate = true):
+	.interact(propagate)
 	if closed:
 		open()
 	else:

@@ -31,7 +31,6 @@ transparent_bg = true
 gui_disable_input = true
 
 [node name="LockScreen" parent="Viewport" instance=ExtResource( 1 )]
-maxLength = 10
 
 [node name="CSGBox" type="CSGBox" parent="."]
 width = 0.4

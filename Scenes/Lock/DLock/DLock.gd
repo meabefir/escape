@@ -20,7 +20,7 @@ func _ready():
 	unlockedLayer = 0 + 2
 	lockedLayer = 0
 
-func interact():
+func interact(propagate = true):
 	openUi()
 
 func openUi():
@@ -49,8 +49,8 @@ func lockUnlocked():
 	ui.hide()
 	freePlayer()
 	
-	ui.maxLength = 9
-	ui.text = "unlocked"
+	lockScreen3d.maxLength = 9
+	lockScreen3d.text = "unlocked"
 
 	lock(null)
 	.lockUnlocked()

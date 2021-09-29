@@ -4,6 +4,7 @@ class_name Interactable
 
 var interactTooltip = ""
 export var locked = false
+export var lockedMessage = "locked"
 
 export var onlyInteractOnUnlock = false
 export var interactOnUnlock = true

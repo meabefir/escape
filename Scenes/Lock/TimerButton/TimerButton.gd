@@ -14,7 +14,7 @@ var badColor = Color("e73d3d")
 var goodColor = Color("52e73d")
 
 var state = STATE.DEFAULT
-export var resetTime = 2
+export(float) var resetTime = 2
 export(STATE) var stateNeeded = STATE.DEFAULT
 
 func _init():
@@ -27,6 +27,7 @@ func _ready():
 	timer.wait_time = resetTime
 	
 	# unlock if state is already needed one
+	yield(get_tree().create_timer(.1), "timeout")
 	if state == stateNeeded:
 		lockUnlocked()
 

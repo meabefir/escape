@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Level/StaticAssets/wall.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/Lock/Lever/Lever.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Lock/ItemScanner/ItemScanner.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/PIckable/Paintings/Small/PaintingSmall.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/DecorMisc/LineRenderer/LineRenderer.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Terrain/Walls/wall5/Sprite3D/Viewport")
@@ -414,26 +415,6 @@ transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 10, 0, 2.5 )
 [node name="floorFull5" parent="Terrain/Floor" instance=ExtResource( 4 )]
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 2.5, 0, 2.5 )
 
-[node name="Ceiling" type="Spatial" parent="Terrain"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
-visible = false
-
-[node name="floorFull2" parent="Terrain/Ceiling" instance=ExtResource( 4 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 2.5, 0, -5 )
-cast_shadow = 0
-
-[node name="floorFull3" parent="Terrain/Ceiling" instance=ExtResource( 4 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 10, 0, -5 )
-cast_shadow = 0
-
-[node name="floorFull4" parent="Terrain/Ceiling" instance=ExtResource( 4 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 10, 0, 2.5 )
-cast_shadow = 0
-
-[node name="floorFull5" parent="Terrain/Ceiling" instance=ExtResource( 4 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 2.5, 0, 2.5 )
-cast_shadow = 0
-
 [node name="Walls" type="Spatial" parent="Terrain"]
 
 [node name="wall" parent="Terrain/Walls" instance=ExtResource( 2 )]
@@ -617,63 +598,83 @@ code = "4172"
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 5, 0, 2.5 )
 
 [node name="Lever" parent="Interactable/DoorRoom2" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.40163, 1.6468, 0.121719 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -4.84281, 1.43484, 4.57223 )
 chainsWithPropagate = [ NodePath("../Lever7") ]
 interactableLocked = NodePath("../wallDoorway/door")
 stateNeeded = 1
 
 [node name="Lever2" parent="Interactable/DoorRoom2" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.90163, 1.6468, 0.121719 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -4.84281, 1.43484, 4.07223 )
 chainsWithPropagate = [ NodePath("../Lever8") ]
 interactableLocked = NodePath("../wallDoorway/door")
 startState = 0
 stateNeeded = 1
 
 [node name="Lever3" parent="Interactable/DoorRoom2" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.40163, 1.6468, 0.121719 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -4.84281, 1.43484, 3.57223 )
 chainsWithPropagate = [ NodePath("../Lever4") ]
 interactableLocked = NodePath("../wallDoorway/door")
 stateNeeded = 1
 
 [node name="Lever4" parent="Interactable/DoorRoom2" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.90162, 1.6468, 0.121719 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -4.84281, 1.43484, 3.07222 )
 chainsWithPropagate = [ NodePath("../Lever9") ]
 interactableLocked = NodePath("../wallDoorway/door")
 stateNeeded = 1
 
 [node name="Lever5" parent="Interactable/DoorRoom2" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.40162, 1.6468, 0.121719 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -4.84281, 1.43484, 2.57222 )
 chainsWithPropagate = [ NodePath("../Lever6") ]
 interactableLocked = NodePath("../wallDoorway/door")
 startState = 0
 stateNeeded = 1
 
 [node name="Lever6" parent="Interactable/DoorRoom2" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.40163, 1.1468, 0.121719 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -4.84281, 0.934838, 4.57223 )
 interactableLocked = NodePath("../wallDoorway/door")
 
 [node name="Lever7" parent="Interactable/DoorRoom2" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.90163, 1.1468, 0.121718 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -4.84281, 0.934838, 4.07223 )
 chainsWithPropagate = [ NodePath("../Lever3") ]
 interactableLocked = NodePath("../wallDoorway/door")
 
 [node name="Lever8" parent="Interactable/DoorRoom2" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.40163, 1.1468, 0.121719 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -4.84281, 0.934838, 3.57223 )
 chainsWithPropagate = [ NodePath("../Lever10") ]
 interactableLocked = NodePath("../wallDoorway/door")
 startState = 0
 
 [node name="Lever9" parent="Interactable/DoorRoom2" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.90162, 1.1468, 0.121719 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -4.84281, 0.934838, 3.07222 )
 chainsWithPropagate = [ NodePath("../Lever2") ]
 interactableLocked = NodePath("../wallDoorway/door")
 startState = 0
 
 [node name="Lever10" parent="Interactable/DoorRoom2" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.40162, 1.1468, 0.121719 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, -4.84281, 0.934838, 2.57222 )
 chainsWithPropagate = [ NodePath("../Lever5") ]
 interactableLocked = NodePath("../wallDoorway/door")
 startState = 0
+
+[node name="lines" type="Spatial" parent="Interactable/DoorRoom2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86989, 0, 4 )
+
+[node name="LineRenderer" parent="Interactable/DoorRoom2/lines" instance=ExtResource( 12 )]
+
+[node name="Position3D" type="Position3D" parent="Interactable/DoorRoom2/lines/LineRenderer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40331, 0.633237 )
+
+[node name="Position3D2" type="Position3D" parent="Interactable/DoorRoom2/lines/LineRenderer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40331, 0.948469 )
+
+[node name="Position3D3" type="Position3D" parent="Interactable/DoorRoom2/lines/LineRenderer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.412628, 0.948469 )
+
+[node name="Position3D4" type="Position3D" parent="Interactable/DoorRoom2/lines/LineRenderer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.412628, 0.0763867 )
+
+[node name="Position3D5" type="Position3D" parent="Interactable/DoorRoom2/lines/LineRenderer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.81827, 0.0763867 )
 
 [node name="DoorRoom3" parent="Interactable" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5, 0, 5 )
@@ -918,16 +919,29 @@ anims/spin = SubResource( 39 )
 environment = SubResource( 41 )
 
 [editable path="Interactable/DoorRoom1"]
+
 [editable path="Interactable/DoorRoom2"]
+
 [editable path="Interactable/DoorRoom3"]
+
 [editable path="Interactable/DoorRoom3/YellowScanner"]
+
 [editable path="Interactable/DoorRoom3/RedScanner"]
+
 [editable path="Interactable/DoorRoom3/GreenScanner"]
+
 [editable path="Interactable/DoorRoom3/BlueScanner"]
+
 [editable path="Pickable/GreenChair"]
+
 [editable path="Pickable/BlueChair"]
+
 [editable path="Pickable/YellowChair"]
+
 [editable path="Pickable/RedChair"]
+
 [editable path="Pickable/PurpleChair"]
+
 [editable path="Pickable/BrownChair"]
+
 [editable path="Player"]

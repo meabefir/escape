@@ -18,8 +18,9 @@ func _ready():
 func checkItems():
 	if itemsInside.size() > 1 or itemsInside.size() == 0:
 		lockLocked()
-		if interactableLocked:
-			interactableLocked.lock(self)
+		# stc
+#		if interactableLocked:
+#			interactableLocked.lock(self)
 		var mat: Material = areaMesh.get_surface_material(0)
 		tween.stop_all()
 		tween.interpolate_property(mat, "albedo_color", mat.albedo_color, badColor, .3)

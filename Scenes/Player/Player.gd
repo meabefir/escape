@@ -170,12 +170,12 @@ func move(delta):
 		snap_vector = Vector3()
 	velocity = move_and_slide_with_snap(velocity, snap_vector, Vector3.UP, true, 4, .78, false)
 	
-	for i in get_slide_count():
-		var collider = get_slide_collision(i).collider
-		if !collider is Pickable:
-			continue
-		var vec_to_collider = (collider.global_transform.origin - global_transform.origin).normalized()
-		collider.apply_central_impulse(vec_to_collider * 55)
+#	for i in get_slide_count():
+#		var collider = get_slide_collision(i).collider
+#		if !collider is Pickable:
+#			continue
+#		var vec_to_collider = (collider.global_transform.origin - global_transform.origin).normalized()
+#		collider.apply_central_impulse(vec_to_collider * 55)
 	
 func updateInteractRay():
 	var interactable = interactRay.get_collider()

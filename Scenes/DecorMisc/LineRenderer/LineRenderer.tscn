@@ -4,3 +4,7 @@
 
 [node name="LineRenderer" type="Spatial"]
 script = ExtResource( 1 )
+
+[node name="positions" type="Spatial" parent="."]
+
+[node name="meshes" type="Spatial" parent="."]

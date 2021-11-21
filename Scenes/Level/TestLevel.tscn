@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Interactable/Door/Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Lock/DLock/DLock.tscn" type="PackedScene" id=2]
@@ -16,6 +16,10 @@ size = Vector3( 50, 1, 50 )
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 25, 0.5, 25 )
+
+[sub_resource type="SpatialMaterial" id=3]
+resource_local_to_scene = true
+albedo_color = Color( 0.905882, 0.239216, 0.239216, 1 )
 
 [node name="Level" type="Spatial"]
 script = ExtResource( 8 )
@@ -61,116 +65,6 @@ spot_angle_attenuation = 0.366021
 
 [node name="Interactable" type="Spatial" parent="."]
 
-[node name="ButtonDoor" parent="Interactable" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -2 )
-
-[node name="door" parent="Interactable/ButtonDoor/wallDoorway" index="1"]
-lockedMessage = ""
-onlyInteractOnUnlock = true
-
-[node name="TimerButton" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
-transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -0.291673, 1.74801, 0.162447 )
-interactableLocked = NodePath("../wallDoorway/door")
-
-[node name="TimerButton2" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
-transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -0.291673, 1.45824, 0.162447 )
-interactableLocked = NodePath("../wallDoorway/door")
-stateNeeded = 1
-
-[node name="TimerButton3" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
-transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -0.291673, 1.11507, 0.162447 )
-interactableLocked = NodePath("../wallDoorway/door")
-
-[node name="TimerButton4" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
-transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -2.16792, 1.74801, 0.162447 )
-interactableLocked = NodePath("../wallDoorway/door")
-
-[node name="TimerButton5" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
-transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -2.16792, 1.45824, 0.162447 )
-interactableLocked = NodePath("../wallDoorway/door")
-stateNeeded = 1
-
-[node name="TimerButton6" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
-transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -2.16792, 1.11507, 0.162447 )
-interactableLocked = NodePath("../wallDoorway/door")
-
-[node name="LockedDoor" parent="Interactable" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 1.5 )
-
-[node name="DLock" parent="Interactable/LockedDoor/wallDoorway/door" index="3" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603004, 1.45431, 0.0103149 )
-interactOnUnlock = false
-interactableLocked = NodePath("..")
-
-[node name="DLock2" parent="Interactable/LockedDoor/wallDoorway/door" index="4" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603004, 1.79932, 0.0103149 )
-interactableLocked = NodePath("..")
-
-[node name="ItemScannerLockedDoor" parent="Interactable" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 8.5 )
-
-[node name="LineRenderer" parent="Interactable/ItemScannerLockedDoor" instance=ExtResource( 10 )]
-
-[node name="Position3D" type="Position3D" parent="Interactable/ItemScannerLockedDoor/LineRenderer"]
-
-[node name="Position3D2" type="Position3D" parent="Interactable/ItemScannerLockedDoor/LineRenderer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5 )
-
-[node name="Position3D3" type="Position3D" parent="Interactable/ItemScannerLockedDoor/LineRenderer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.5 )
-
-[node name="LineRenderer2" parent="Interactable/ItemScannerLockedDoor" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.304523, 0, 0 )
-
-[node name="Position3D" type="Position3D" parent="Interactable/ItemScannerLockedDoor/LineRenderer2"]
-
-[node name="Position3D2" type="Position3D" parent="Interactable/ItemScannerLockedDoor/LineRenderer2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5 )
-
-[node name="Position3D3" type="Position3D" parent="Interactable/ItemScannerLockedDoor/LineRenderer2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3.5 )
-
-[node name="Position3D4" type="Position3D" parent="Interactable/ItemScannerLockedDoor/LineRenderer2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4.5 )
-
-[node name="ItemScanner" parent="Interactable/ItemScannerLockedDoor" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14416, 0.0576395, 1.99445 )
-interactableLocked = NodePath("../wallDoorway/door")
-lines3d = [ NodePath("../LineRenderer") ]
-neededItem = NodePath("../../../Pickable/Chair2")
-
-[node name="ItemScanner2" parent="Interactable/ItemScannerLockedDoor" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1928, 0.0576395, 4.41579 )
-interactableLocked = NodePath("../wallDoorway/door")
-lines3d = [ NodePath("../LineRenderer2") ]
-neededItem = NodePath("../../../Pickable/Chair")
-
-[node name="LeverDoor" parent="Interactable" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 2, 0, 5 )
-
-[node name="Lever" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.23911, 1.97137, 0.14338 )
-chainsWith = [ NodePath("../Lever2") ]
-interactableLocked = NodePath("../wallDoorway/door")
-stateNeeded = 1
-
-[node name="Lever2" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.23911, 1.38166, 0.14338 )
-chainsWith = [ NodePath("../Lever3") ]
-interactableLocked = NodePath("../wallDoorway/door")
-startState = 0
-
-[node name="Lever3" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.266999, 1.97137, 0.14338 )
-chainsWith = [ NodePath("../Lever4") ]
-interactableLocked = NodePath("../wallDoorway/door")
-startState = 0
-stateNeeded = 1
-
-[node name="Lever4" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.266999, 1.38166, 0.14338 )
-interactableLocked = NodePath("../wallDoorway/door")
-
 [node name="ItemSpawner" parent="Interactable" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3.5 )
 onlyInteractOnUnlock = true
@@ -181,29 +75,155 @@ maxItems = 1
 [node name="SpawnPosition" parent="Interactable/ItemSpawner" index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 0 )
 
-[node name="LineRenderer" parent="Interactable/ItemSpawner" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-
-[node name="Position3D" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer"]
-
-[node name="Position3D2" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.269196, 0, 0 )
-
-[node name="Position3D3" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.269196, -1, 0 )
-
-[node name="Position3D4" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2692, -1, 0 )
-
 [node name="TimerButton" parent="Interactable/ItemSpawner" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-interactableLocked = NodePath("../../ItemSpawner")
-lines3d = [ NodePath("../LineRenderer") ]
+lines3d = [ NodePath("") ]
 resetTime = 0.5
 stateNeeded = 1
 
+[node name="button mesh" parent="Interactable/ItemSpawner/TimerButton" index="3"]
+material/0 = SubResource( 3 )
+
+[node name="LineRenderer" parent="Interactable/ItemSpawner" instance=ExtResource( 10 )]
+
+[node name="Position3D" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="0"]
+transform = Transform( -1, 1e-07, -8.74228e-08, 1e-07, 1, 0, 8.74228e-08, -8.74228e-15, -1, 0, 0, 0 )
+
+[node name="Position3D2" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="1"]
+transform = Transform( 6.71544e-07, -6.71544e-14, 1, 9.99999e-08, 1, 6.77626e-21, -1, 9.99999e-08, 6.71544e-07, 0, 0, 1 )
+
+[node name="Position3D3" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="2"]
+transform = Transform( 1, 1e-07, 0, -1e-07, 1, 0, 0, 0, 1, -3, 0, 0.999998 )
+
+[node name="Position3D4" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="3"]
+transform = Transform( 0.707107, 0.707107, -3.09086e-08, 0, -4.37114e-08, -1, -0.707107, 0.707107, -3.09086e-08, -3, 0, -1.90735e-06 )
+
+[node name="Position3D16" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="4"]
+transform = Transform( -4.37114e-08, 4.37114e-15, 0.999999, 1e-07, 1, 0, -1, 1e-07, -4.37113e-08, -3, 3.5, -1.90735e-06 )
+
+[node name="Position3D17" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="5"]
+transform = Transform( -0.707107, 0.707107, 3.09086e-08, 0, -4.37114e-08, 0.999999, 0.707107, 0.707107, 3.09086e-08, -3.5, 3.5, -1.90735e-06 )
+
+[node name="Position3D5" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="6"]
+transform = Transform( -1, 1e-07, -8.74228e-08, 1e-07, 1, 0, 8.74228e-08, -8.74228e-15, -1, -3.5, 0, -1.90735e-06 )
+
+[node name="Position3D6" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="7"]
+transform = Transform( -4.37114e-08, 4.37114e-15, 1, 1e-07, 1, 0, -1, 1e-07, -4.37114e-08, -3.5, 0, 0.999998 )
+
+[node name="Position3D7" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="8"]
+transform = Transform( 1, 1e-07, 0, -1e-07, 1, 0, 0, 0, 1, -4, 0, 0.999998 )
+
+[node name="Position3D8" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="9"]
+transform = Transform( 5.62886e-08, 0.707107, 0.707107, 1e-07, 0.707107, -0.707107, -1, 1.10513e-07, -3.09086e-08, -4, 0, -0.500002 )
+
+[node name="Position3D9" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="10"]
+transform = Transform( -1, 1e-07, -8.74228e-08, 1e-07, 1, 0, 8.74228e-08, -8.74228e-15, -1, -5, 1, -0.500002 )
+
+[node name="Position3D10" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="11"]
+transform = Transform( -4.37114e-08, 4.37114e-15, 1, 1e-07, 1, 0, -1, 1e-07, -4.37114e-08, -5, 1, -1.90735e-06 )
+
+[node name="Position3D11" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="12"]
+transform = Transform( 1, 1e-07, 0, -1e-07, 1, 0, 0, 0, 1, -5.5, 1, -1.90735e-06 )
+
+[node name="Position3D12" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="13"]
+transform = Transform( 0.707106, 0.408249, -0.577351, -1.41421e-07, 0.816497, 0.577351, 0.707108, -0.408248, 0.57735, -5.5, 1, -0.500002 )
+
+[node name="Position3D13" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="14"]
+transform = Transform( -0.447214, -2e-08, -0.894427, -4.47214e-08, 1, 0, 0.894428, 4e-08, -0.447214, -4.5, 0, -1.5 )
+
+[node name="Position3D14" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="15"]
+transform = Transform( -4.37114e-08, -4.37114e-15, -1, -1e-07, 1, 0, 1, 1e-07, -4.37114e-08, -3.5, 0, -1 )
+
+[node name="Position3D15" type="Position3D" parent="Interactable/ItemSpawner/LineRenderer/positions" index="16"]
+transform = Transform( 1, 0.000999001, 0, -0.000999001, 1, 0, 0, 0, 1, -2, 0, -1 )
+
 [node name="ItemScanner" parent="Interactable/ItemSpawner" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5 )
+lines3d = [ NodePath("../LineRenderer") ]
+
+[node name="ButtonDoor" parent="Interactable" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -2 )
+
+[node name="door" parent="Interactable/ButtonDoor/wallDoorway" index="1"]
+lockedMessage = ""
+onlyInteractOnUnlock = true
+
+[node name="TimerButton" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
+transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -0.291673, 1.74801, 0.162447 )
+interactablesLocked = [ NodePath("../wallDoorway/door") ]
+
+[node name="TimerButton2" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
+transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -0.291673, 1.45824, 0.162447 )
+interactablesLocked = [ NodePath("../wallDoorway/door") ]
+stateNeeded = 1
+
+[node name="TimerButton3" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
+transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -0.291673, 1.11507, 0.162447 )
+interactablesLocked = [ NodePath("../wallDoorway/door") ]
+
+[node name="TimerButton4" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
+transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -2.16792, 1.74801, 0.162447 )
+interactablesLocked = [ NodePath("../wallDoorway/door") ]
+
+[node name="TimerButton5" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
+transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -2.16792, 1.45824, 0.162447 )
+interactablesLocked = [ NodePath("../wallDoorway/door") ]
+stateNeeded = 1
+
+[node name="TimerButton6" parent="Interactable/ButtonDoor" instance=ExtResource( 6 )]
+transform = Transform( 1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -2.16792, 1.11507, 0.162447 )
+interactablesLocked = [ NodePath("../wallDoorway/door") ]
+
+[node name="LockedDoor" parent="Interactable" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 1.5 )
+
+[node name="DLock" parent="Interactable/LockedDoor/wallDoorway/door" index="3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603004, 1.45431, 0.0103149 )
+interactOnUnlock = false
+interactablesLocked = [ NodePath("..") ]
+
+[node name="DLock2" parent="Interactable/LockedDoor/wallDoorway/door" index="4" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603004, 1.79932, 0.0103149 )
+interactablesLocked = [ NodePath("..") ]
+
+[node name="ItemScannerLockedDoor" parent="Interactable" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 8.5 )
+
+[node name="ItemScanner" parent="Interactable/ItemScannerLockedDoor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.144, 0, 1.994 )
+lines3d = [ NodePath("../LineRenderer") ]
+neededItem = NodePath("../../../Pickable/Chair2")
+
+[node name="ItemScanner2" parent="Interactable/ItemScannerLockedDoor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.193, 0, 4.416 )
+lines3d = [ NodePath("../LineRenderer2") ]
+neededItem = NodePath("../../../Pickable/Chair")
+
+[node name="LeverDoor" parent="Interactable" instance=ExtResource( 1 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 2, 0, 5 )
+
+[node name="Lever" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.23911, 1.97137, 0.14338 )
+chainsWith = [ NodePath("../Lever2") ]
+interactablesLocked = [ NodePath("../wallDoorway/door") ]
+stateNeeded = 1
+
+[node name="Lever2" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2.23911, 1.38166, 0.14338 )
+chainsWith = [ NodePath("../Lever3") ]
+interactablesLocked = [ NodePath("../wallDoorway/door") ]
+startState = 0
+
+[node name="Lever3" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.266999, 1.97137, 0.14338 )
+chainsWith = [ NodePath("../Lever4") ]
+interactablesLocked = [ NodePath("../wallDoorway/door") ]
+startState = 0
+stateNeeded = 1
+
+[node name="Lever4" parent="Interactable/LeverDoor" instance=ExtResource( 4 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.266999, 1.38166, 0.14338 )
+interactablesLocked = [ NodePath("../wallDoorway/door") ]
 
 [node name="Pickable" type="Spatial" parent="."]
 
@@ -218,12 +238,14 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0.5
 [node name="Player" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55966, 1.4657, 2.19179 )
 
-[editable path="Interactable/ButtonDoor"]
-
-[editable path="Interactable/LockedDoor"]
-
-[editable path="Interactable/ItemScannerLockedDoor"]
-
-[editable path="Interactable/LeverDoor"]
+[node name="OmniLight" parent="Player/Torso/Head" index="3"]
+visible = false
 
 [editable path="Interactable/ItemSpawner"]
+[editable path="Interactable/ItemSpawner/TimerButton"]
+[editable path="Interactable/ItemSpawner/LineRenderer"]
+[editable path="Interactable/ButtonDoor"]
+[editable path="Interactable/LockedDoor"]
+[editable path="Interactable/ItemScannerLockedDoor"]
+[editable path="Interactable/LeverDoor"]
+[editable path="Player"]

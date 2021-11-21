@@ -2,16 +2,14 @@ extends Interactable
 
 class_name Lock
 
-export(NodePath) var interactableLocked
+export(Array, NodePath) var interactablesLocked
 export var lockOnStart = true
 
 export(Array, NodePath) var lines3d
 
 func _ready():
-	if interactableLocked != "":
-		interactableLocked = get_node(interactableLocked)
-	else:
-		interactableLocked = null
+	for i in range(interactablesLocked.size()):
+		interactablesLocked[i] = get_node(interactablesLocked[i])
 	
 	for i in range(lines3d.size()):
 		lines3d[i] = get_node(lines3d[i])
@@ -20,19 +18,21 @@ func _ready():
 		lockLocked()
 
 func lockLocked():
-	if interactableLocked == null:
-		return
-	interactableLocked.lock(self)
-
 	for line in lines3d:
 		if line:
 			line.unhighlight()
 
-func lockUnlocked():
-	if interactableLocked == null:
+	if interactablesLocked.size() == 0:
 		return
-	interactableLocked.unlock(self)
-	
+	for i in range(interactablesLocked.size()):
+		interactablesLocked[i].lock(self)
+
+func lockUnlocked():
 	for line in lines3d:
 		if line:
 			line.highlight()
+	
+	if interactablesLocked.size() == 0:
+		return
+	for i in range(interactablesLocked.size()):
+		interactablesLocked[i].unlock(self)

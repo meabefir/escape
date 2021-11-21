@@ -55,6 +55,9 @@ params/bias = 0.99
 params/damping = 1.2
 params/impulse_clamp = 20.0
 
+[node name="OmniLight" type="OmniLight" parent="Torso/Head"]
+light_negative = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="random info" type="ColorRect" parent="CanvasLayer"]
@@ -205,5 +208,6 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="CanvasLayer/Settings/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/RestartButton" to="CanvasLayer/Settings" method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Settings/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2/Quit" to="CanvasLayer/Settings" method="_on_Quit_pressed"]

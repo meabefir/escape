@@ -25,7 +25,8 @@ func setState(_state):
 		yield(animationPlayer, "animation_finished")
 	
 	if state == stateNeeded and _state != stateNeeded:
-		interactableLocked.lock(self) 
+		for i in range(interactablesLocked.size()):
+			interactablesLocked[i].lock(self) 
 	state = _state
 	
 	yield(get_tree().create_timer(.1), "timeout")

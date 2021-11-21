@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="escape"
-run/main_scene="res://Scenes/Level/TestLevel.tscn"
+run/main_scene="res://Scenes/Level/Levels/Level2.tscn"
 config/icon="res://icon.png"
 
 [importer_defaults]

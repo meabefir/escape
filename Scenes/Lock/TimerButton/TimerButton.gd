@@ -13,6 +13,7 @@ enum STATE {
 var badColor = Color("e73d3d")
 var goodColor = Color("52e73d")
 
+export var oneTimeUse = false
 var state = STATE.DEFAULT
 export(float) var resetTime = 2
 export(STATE) var stateNeeded = STATE.DEFAULT
@@ -50,7 +51,8 @@ func interact(propagate = true):
 		lockLocked()
 
 	yield(animationPlayer, "animation_finished")
-	timer.start()
+	if !oneTimeUse:
+		timer.start()
 
 func _on_Timer_timeout():
 	animationPlayer.play("release")

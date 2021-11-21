@@ -35,7 +35,7 @@ func interact(propagate = true):
 			interactable.interact()
 		for interactable in chainsWith:
 			interactable.interact(false)
-	
+
 func lock(by):
 	if by in lockedBy:
 		return
